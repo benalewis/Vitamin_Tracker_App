@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.benlewis.vitamintrackerapp">
 
+    <permission android:name="com.benlewis.vitamintrackerapp.provider.READWRITE" />
+    <uses-permission android:name="com.benlewis.vitamintrackerapp.provider.READWRITE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.benlewis.vitamintrackerapp.provider"
+            android:name="com.benlewis.vitamintrackerapp.VitaminProvider"
+            android:exported="true"
+            android:readPermission="com.benlewis.vitamintrackerapp.provider.READWRITE"
+            android:writePermission="com.benlewis.vitamintrackerapp.provider.READWRITE"/>
     </application>
 
 </manifest>
